@@ -119,7 +119,7 @@ not redistribute these, without checking each author's terms first.
 
 | tool | author | how it got here |
 |------|--------|-----------------|
-| `scripts/speedcut.py` | Joe Wu — http://im3djoe.com | SpeedCut 2.24. Shipped as "copy and paste into a python tab", so it was living in `scriptEditorTemp/commandExecuter-8`. Saved to a file, unmodified apart from the trailing `jwSpeedCutUI()` call. |
+| `scripts/speedcut.py` | Joe Wu — http://im3djoe.com | SpeedCut 2.24, a boolean/cut tool set. Shipped as "copy and paste into a python tab", so it was living in `scriptEditorTemp/commandExecuter-8` — which Maya rewrites on exit. Saved to a file, unmodified apart from the trailing `jwSpeedCutUI()` call. |
 | `scripts/fcm_hider.py` | FCM | FCM_Hider Beta 2.2, extracted from a shelf button that held all 1,319 lines inline. |
 | `scripts/overlapper.mel` | Overlapper 1.1.2 (header says copyright, no licence) | Extracted from a shelf button that held all 837 lines inline. |
 | `vendor/dwpicker` | DreamWall Animation | Git submodule of https://github.com/DreamWall-Animation/dwpicker |
@@ -131,3 +131,11 @@ Note on the three extracted tools: all were designed to be pasted into the Scrip
 so their UIs use string-valued callbacks that Maya evaluates in `__main__`. Importing them
 as plain modules leaves every button in their windows raising `NameError` — hence the
 `show()` wrapper each one has. Do not "clean that up".
+
+## Not done yet
+
+`icons/pie_chart.png` is reserved for a geometry slicer (a simple slice-a-mesh tool) that
+is not in this repo. It was not found anywhere on this machine: no matching filename or
+file content under the Maya folders, `D:/Dropbox` or `D:/Projects`; not in any Maya
+Script Editor tab; and no Claude Code session transcript on this machine mentions one.
+SpeedCut is currently borrowing `manriki.png` as a placeholder instead.

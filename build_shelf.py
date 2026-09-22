@@ -59,7 +59,8 @@ BUTTONS = [
     dict(
         label="SpeedCut",
         annotation="SpeedCut 2.24 - boolean / cut tool set (Joe Wu)",
-        icon="pie_chart.png",
+        # placeholder: pie_chart.png is reserved for the geometry slicer
+        icon="manriki.png",
         source="python",
         # show() publishes the module's names into __main__ first - SpeedCut's UI is
         # wired with 85 string callbacks, which Maya evaluates there.
@@ -90,7 +91,7 @@ BUTTONS = [
     dict(
         label="Anim Exporter",
         annotation="Animation Exporter - bookmarks to FBX",
-        icon="export.png",
+        icon="exporter.png",
         source="python",
         command="import bc_anim_exporter as bce\n"
                 "from importlib import reload; reload(bce)\n"

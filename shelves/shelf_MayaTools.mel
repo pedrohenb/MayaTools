@@ -127,8 +127,8 @@ global proc shelf_MayaTools () {
         -flipY 0
         -useAlpha 1
         -font "plainLabelFont"
-        -image "pie_chart.png"
-        -image1 "pie_chart.png"
+        -image "manriki.png"
+        -image1 "manriki.png"
         -style "iconOnly"
         -marginWidth 0
         -marginHeight 1
@@ -205,8 +205,8 @@ global proc shelf_MayaTools () {
         -flipY 0
         -useAlpha 1
         -font "plainLabelFont"
-        -image "export.png"
-        -image1 "export.png"
+        -image "exporter.png"
+        -image1 "exporter.png"
         -style "iconOnly"
         -marginWidth 0
         -marginHeight 1
