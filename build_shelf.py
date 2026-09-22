@@ -12,8 +12,6 @@ SHELF_NAME = "MayaTools"
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "shelves", "shelf_%s.mel" % SHELF_NAME)
 
-DWPICKER_PATH = "C:/Users/PedroHenb/Documents/maya/scripts/dwpicker-main"
-
 # label, annotation, icon (bare filename, resolved via XBMLANGPATH), overlay, sourceType, command
 BUTTONS = [
     # ---- animation -------------------------------------------------------
@@ -30,23 +28,13 @@ BUTTONS = [
         annotation="dwpicker - animation picker",
         icon="dwpicker.png",
         source="python",
-        # The importable package is dwpicker-main/dwpicker, so the PARENT has to be on
-        # sys.path - plain "import dwpicker" raises ModuleNotFoundError.
-        command="import sys\n"
-                "_p = r'%s'\n"
-                "if _p not in sys.path:\n"
-                "    sys.path.append(_p)\n"
+        # dwpicker is a git submodule under vendor/. The importable package is
+        # vendor/dwpicker/dwpicker, so its PARENT goes on sys.path - a plain
+        # "import dwpicker" raises ModuleNotFoundError.
+        command="import vendor_paths\n"
+                "vendor_paths.ensure_dwpicker()\n"
                 "import dwpicker\n"
-                "dwpicker.show()" % DWPICKER_PATH,
-    ),
-    dict(
-        label="bhGhost",
-        annotation="bhGhost 1.32 - onion skinning",
-        icon="bhghost.png",
-        source="mel",
-        # scripts/ is on MAYA_SCRIPT_PATH via the module, so MEL auto-sources
-        # bhGhost.mel on first call to an unknown proc.
-        command="bhGhost();",
+                "dwpicker.show()",
     ),
     dict(
         label="Overlapper",
@@ -67,15 +55,6 @@ BUTTONS = [
                 "import fcm_hider\n"
                 "importlib.reload(fcm_hider)\n"
                 "fcm_hider.show()",
-    ),
-    # ---- studio ----------------------------------------------------------
-    dict(
-        label="ArtExporter",
-        annotation="Wildlife Art Exporter (studio pipeline, needs pymel)",
-        icon="exporter.png",
-        source="python",
-        command="from python.pipeline.exporterArt.ui import ArtExporterUI\n"
-                "ArtExporterUI.mainWindow.showUI()",
     ),
     # ---- BanditCamp ------------------------------------------------------
     dict(

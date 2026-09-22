@@ -1,0 +1,3 @@
+[submodule "vendor/dwpicker"]
+	path = vendor/dwpicker
+	url = https://github.com/DreamWall-Animation/dwpicker.git
