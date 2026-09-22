@@ -56,6 +56,18 @@ BUTTONS = [
                 "importlib.reload(fcm_hider)\n"
                 "fcm_hider.show()",
     ),
+    dict(
+        label="SpeedCut",
+        annotation="SpeedCut 2.24 - boolean / cut tool set (Joe Wu)",
+        icon="pie_chart.png",
+        source="python",
+        # show() publishes the module's names into __main__ first - SpeedCut's UI is
+        # wired with 85 string callbacks, which Maya evaluates there.
+        command="import importlib\n"
+                "import speedcut\n"
+                "importlib.reload(speedcut)\n"
+                "speedcut.show()",
+    ),
     # ---- BanditCamp ------------------------------------------------------
     dict(
         label="Rig Replicator",

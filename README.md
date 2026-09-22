@@ -110,3 +110,24 @@ before relying on finger retargeting.
 Two slots are filled by inference rather than from studio data, flagged as `DERIVED` in
 the module: `LeftToeBase` / `RightToeBase`, taken from Zooba's
 `LeftFootExtraFinger1` → `L_Toe_JNT`. Set `USE_DERIVED = False` to turn that off.
+
+## Third-party tools bundled here
+
+This repo is **private**. It vendors tools written by other people, some of which carry
+no licence text at all — only an author and a URL. Do not make this repo public, and do
+not redistribute these, without checking each author's terms first.
+
+| tool | author | how it got here |
+|------|--------|-----------------|
+| `scripts/speedcut.py` | Joe Wu — http://im3djoe.com | SpeedCut 2.24. Shipped as "copy and paste into a python tab", so it was living in `scriptEditorTemp/commandExecuter-8`. Saved to a file, unmodified apart from the trailing `jwSpeedCutUI()` call. |
+| `scripts/fcm_hider.py` | FCM | FCM_Hider Beta 2.2, extracted from a shelf button that held all 1,319 lines inline. |
+| `scripts/overlapper.mel` | Overlapper 1.1.2 (header says copyright, no licence) | Extracted from a shelf button that held all 837 lines inline. |
+| `vendor/dwpicker` | DreamWall Animation | Git submodule of https://github.com/DreamWall-Animation/dwpicker |
+
+`scripts/bc_*.py` are BanditCamp tools; `wd_flowstudio_templates.py` reads Wildlife's own
+rig standards from `P:` at runtime and bundles only a fallback snapshot of them.
+
+Note on the three extracted tools: all were designed to be pasted into the Script Editor,
+so their UIs use string-valued callbacks that Maya evaluates in `__main__`. Importing them
+as plain modules leaves every button in their windows raising `NameError` — hence the
+`show()` wrapper each one has. Do not "clean that up".

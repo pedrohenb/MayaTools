@@ -119,6 +119,32 @@ global proc shelf_MayaTools () {
         -manage 1
         -visible 1
         -preventOverride 0
+        -annotation "SpeedCut 2.24 - boolean / cut tool set (Joe Wu)"
+        -label "SpeedCut"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -image "pie_chart.png"
+        -image1 "pie_chart.png"
+        -style "iconOnly"
+        -marginWidth 0
+        -marginHeight 1
+        -command "import importlib\nimport speedcut\nimportlib.reload(speedcut)\nspeedcut.show()"
+        -sourceType "python"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
         -annotation "Rig Replicator - duplicate a rigged character cleanly"
         -label "Rig Replicator"
         -labelOffset 0
