@@ -53,7 +53,18 @@ def _register_rig_templates():
 
 def _run():
     _repair_shelves()
-    _register_rig_templates()
+
+    # DISABLED while wd-maya-tools is being tested as shipped.
+    #
+    # _register_rig_templates() appends Wildlife rig naming to Flow Studio's
+    # retargeting templates at runtime, which makes "Auto Assign Bones" fill in
+    # Zooba rigs. It is off so that a validation/export run exercises stock Flow
+    # Studio behaviour and nothing here can be blamed for a failure.
+    #
+    # Re-enable by uncommenting the line below, or for one session only:
+    #     import wd_flowstudio_templates; wd_flowstudio_templates.register()
+    #
+    # _register_rig_templates()
 
 
 def _deferred():
